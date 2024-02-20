@@ -1,0 +1,70 @@
+﻿using System;
+
+class Program
+{
+    static bool CheckAge(int birthYear)
+    {
+        int age = 2024 - birthYear;
+        if (age >= 18)
+        {
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("Could not create an account. You must be at least 18 years old.");
+            return false;
+        }
+    }
+
+    static bool CheckPassword(string password, string password2)
+    {
+        if (password == password2)
+        {
+            Console.WriteLine("Account is created successfully");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("Passwords do not match. Account creation failed.");
+            return false;
+        }
+    }
+
+    static void CreateAccount()
+    {
+        Console.WriteLine("Enter a username:");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+        string username = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
+        Console.WriteLine("Enter a password: ");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+        string password = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
+        Console.WriteLine("Enter password again: ");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+        string password2 = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
+        Console.WriteLine("Enter your birth year: ");
+        int birthYear = Convert.ToInt32(Console.ReadLine());
+
+        if (CheckAge(birthYear))
+        {
+#pragma warning disable CS8604 // Possible null reference argument.
+#pragma warning disable CS8604 // Possible null reference argument.
+            if (CheckPassword(password, password2))
+            {
+                Console.WriteLine($"Account for {username} created successfully");
+            }
+#pragma warning restore CS8604 // Possible null reference argument.
+#pragma warning restore CS8604 // Possible null reference argument.
+        }
+    }
+
+    static void Main()
+    {
+        CreateAccount();
+    }
+}
